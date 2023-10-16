@@ -18,7 +18,7 @@ const addNotas = (dados)=>{
         ==user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "")) 
         
         if(aluno){
-            user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_]==""?0:aluno[nota_]
+            user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_]==""?0:aluno[nota_].replace('.',',')
         }            
     })    
 }
@@ -31,8 +31,7 @@ const resetNotas = ()=>{
     })    
 }
 
-const updateNotas = (dados)=>{    
-    // document.body.style.background = 'red';
+const updateNotas = (dados)=>{       
     const [nome_, nota_] = Object.keys(dados[0])
     console.log(nome_)
     let users = document.querySelectorAll(".user.cell.c1")
@@ -42,8 +41,9 @@ const updateNotas = (dados)=>{
         ==user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "")) 
         
         if(aluno){
-            if(user.nextElementSibling.nextElementSibling.children[1].value != aluno[nota_]){
-                user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_]==""?0:aluno[nota_]
+            console.log(parseFloat(user.nextElementSibling.nextElementSibling.children[1].value.replace(',','.'))+"---"+parseFloat(aluno[nota_].replace(',','.')))
+            if(parseFloat(user.nextElementSibling.nextElementSibling.children[1].value.replace(',','.')) != parseFloat(aluno[nota_].replace(',','.'))){
+                user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_]==""?0:aluno[nota_].replace('.',',')
             }
         }            
     })     
@@ -78,8 +78,10 @@ form.addEventListener('submit', async (event)=>{
 
 })
 
-bt_update.addEventListener('click', async (event)=>{
-    alert("updateNotas")
+bt_update.addEventListener('click', async (event)=>{   
+    dados =(convert_text_in_json(document.querySelector('.input').value))
+    event.preventDefault();
+
     const [tab] = await chrome.tabs.query({active:true, currentWindow:true});
     //console.log(para a execução pelo chrome)
     chrome.scripting.executeScript({
@@ -89,8 +91,7 @@ bt_update.addEventListener('click', async (event)=>{
     });
 })
 
-bt_reset.addEventListener('click', async (event)=>{
-    alert("resetNotas")
+bt_reset.addEventListener('click', async (event)=>{    
     const [tab] = await chrome.tabs.query({active:true, currentWindow:true});
     //console.log(para a execução pelo chrome)
     chrome.scripting.executeScript({
