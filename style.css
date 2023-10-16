@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+}
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 300px;   
+}
+
+form{
+    background-color: #f8f8f8;    
+    width: 100%;
+    padding: 20px;
+}
+
+.input{
+    width: 100%;   
+    outline: none;
+    border-radius: 5px;
+    border:1px solid #ddd;
+}
+
+form > button, .bt_reset, .bt_update{       
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    background-color: #1690f5;
+    color: white;
+    font-weight:800;
+    cursor: pointer;
+    justify-content: center;
+    width: 100%;
+}
+
+button:hover{
+    opacity: 0.75;
+}
+
+#id_submit{    
+    padding: 14px!important;
+}
+
+.bt_reset{
+    background-color: #c42727;
+    padding: 5px!important;
+}
+.bt_update{
+    background-color: #428d70;
+    padding: 5px!important;
+}
+
+
+h1{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.main > div{    
+    display: flex;
+}

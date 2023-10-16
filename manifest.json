@@ -1,0 +1,12 @@
+{
+
+  "manifest_version": 3,
+  "name": "add Notas",
+  "version": "1.0",
+  "description": "Adiciona notas",
+  "permissions":["activeTab", "scripting"],
+  "action":{
+    "default_popup":"index.html"
+  }
+
+}
