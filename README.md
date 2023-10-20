@@ -27,7 +27,14 @@ Carregar a extensão baixada através do gerenciador de extensões do Chrome.
 
 ![enter image description here](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3htOGxzcG5kdDc0cWw2dHA1YjBmcngzanhzMDd3YzRuYjdvaXBzYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ZgYssKUaDT4dTWyjTt/giphy.gif)
 
+
 ***Passo 4***
-Selecionar e copiar a coluna nome e nota do excel e colar na extensão. Após isso é só clicar em enviar, dessa forma será substituído a nota dos alunos via navegador.
+Acessar a plataforma AVA(Moodle), depois em notas e acessar as notas com inputs a serem inseridos.
+
+![enter image description here](https://media.giphy.com/media/G1wxnHh2a9IKFspskQ/giphy.gif)
+
+***Passo 5***
+Selecionar e copiar a coluna nome e nota do excel e colar na extensão. 
+Obs: os nomes devem ser iguais...
 
 ![enter image description here](https://media.giphy.com/media/G1wxnHh2a9IKFspskQ/giphy.gif)
