@@ -18,7 +18,7 @@ const addNotas = (dados)=>{
         ==user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "")) 
         
         if(aluno){
-            user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_]==""?0:aluno[nota_].replace('.',',')
+            user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_]==""?"":aluno[nota_].replace('.',',')
         }            
     })    
 }
@@ -41,9 +41,10 @@ const updateNotas = (dados)=>{
         ==user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "")) 
         
         if(aluno){
+            //SABER PQ TÁ PEGANDO 0 E 0,00 COMO DIFERENTE
             console.log(parseFloat(user.nextElementSibling.nextElementSibling.children[1].value.replace(',','.'))+"---"+parseFloat(aluno[nota_].replace(',','.')))
             if(parseFloat(user.nextElementSibling.nextElementSibling.children[1].value.replace(',','.')) != parseFloat(aluno[nota_].replace(',','.'))){
-                user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_]==""?0:aluno[nota_].replace('.',',')
+                user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_]==""?"":aluno[nota_].replace('.',',')
             }
         }            
     })     
