@@ -34,8 +34,7 @@ Acessar a plataforma AVA(Moodle), depois ir Este Curso -> Notas -> Visão Única
 ![enter image description here](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTl6enlkMzUyN3Fsempvem5iamhsOTBpdzkyaDEwOWlpYngzcGJpeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NMqTO046PqAQ0Zmcol/giphy.gif)
 
 ***Passo 5***
-Selecionar e copiar a coluna nome e nota do excel e colar na extensão na página de inputs do passo 4, a extensão irá adicionar as notas de
-acordo com os nomes dos alunos. 
-Obs: os nomes devem ser iguais...
+Selecionar e copiar a coluna nome e nota do excel ou SpreedSheet (Google) e colar na extensão na página de inputs do passo 4, a extensão irá adicionar as notas de acordo com os nomes dos alunos. 
+Eessa forma é mais efeciente pois podem ser adicionadas as notas de todos alunos da disciplina, sem a sobrecarga e demora da importação padrão do Moodle por excel. Garantindo mais agilidade e eficiência na postagem.
 
 ![enter image description here](https://media.giphy.com/media/G1wxnHh2a9IKFspskQ/giphy.gif)
