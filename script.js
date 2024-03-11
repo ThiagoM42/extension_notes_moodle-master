@@ -37,11 +37,12 @@ const updateNotas = (dados)=>{
     let users = document.querySelectorAll(".user.cell.c1")
           
     users.forEach((user)=>{   
-        const aluno = dados.find(el=>String(el[nome_]).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-        ==user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "")) 
+        //remover acentos
+        const aluno = dados.find(el=>String(el[nome_]).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace("  ", " ")
+        ==user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "")).replace("  ", " ")
         
         if(aluno){
-            //SABER PQ TÁ PEGANDO 0 E 0,00 COMO DIFERENTE
+            //remover acentos
             console.log(parseFloat(user.nextElementSibling.nextElementSibling.children[1].value.replace(',','.'))+"---"+parseFloat(aluno[nota_].replace(',','.')))
             if(parseFloat(user.nextElementSibling.nextElementSibling.children[1].value.replace(',','.')) != parseFloat(aluno[nota_].replace(',','.'))){
                 user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_]==""?"":aluno[nota_].replace('.',',')
