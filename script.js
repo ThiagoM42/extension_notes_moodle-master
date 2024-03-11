@@ -38,8 +38,8 @@ const updateNotas = (dados)=>{
           
     users.forEach((user)=>{   
         //remover acentos
-        const aluno = dados.find(el=>String(el[nome_]).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace("  ", " ")
-        ==user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "")).replace("  ", " ")
+        const aluno = dados.find(el=>String(el[nome_]).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " ")
+        ==user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " "))
         
         if(aluno){
             //remover acentos
