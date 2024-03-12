@@ -14,11 +14,11 @@ const addNotas = (dados)=>{
     let users = document.querySelectorAll(".user.cell.c1")
           
     users.forEach((user)=>{   
-        const aluno = dados.find(el=>String(el[nome_]).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-        ==user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "")) 
+        const aluno = dados.find(el=>String(el[nome_]).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " ")
+        ==user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " ")) 
         
         if(aluno){
-            user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_]==""?"":aluno[nota_].replace('.',',')
+            user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_]==""?"":aluno[nota_].replace('.',',').replace(/\s{2,}/g, " ")
         }            
     })    
 }
