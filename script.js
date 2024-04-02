@@ -7,23 +7,6 @@ const bt_reset = document.querySelector('.bt_reset')
 const bt_update = document.querySelector('.bt_update')
 
 let dados = []
-const addNotas = (dados) => {
-    // document.body.style.background = 'red';
-    const [nome_, nota_] = Object.keys(dados[0])
-
-    let users = document.querySelectorAll(".user.cell.c0")
-
-    users.forEach((user) => {
-        const aluno = dados.find(el => String(el[nome_]).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " ")
-            == user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " "))
-
-        if (aluno) {
-            user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_] == "" ? "" : aluno[nota_].replace('.', ',').replace(/\s{2,}/g, " ")
-        }
-    })
-
-
-}
 
 const resetNotas = () => {
     // let users = document.querySelectorAll(".user.cell.c1")
@@ -34,6 +17,33 @@ const resetNotas = () => {
     })
 }
 
+const addNotas = (dados) => {
+    // document.body.style.background = 'red';
+    const [nome_, nota_] = Object.keys(dados[0])
+
+    let users = document.querySelectorAll(".user.cell.c0")
+
+    users.forEach((user) => {
+        const aluno = dados.find(el => String(el[nome_]).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " ")
+            // == user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " "))
+            == user.children[0].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " "))
+
+        if (aluno) {
+            user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_] == "" ? "" : aluno[nota_].replace('.', ',').replace(/\s{2,}/g, " ")
+        }        
+    })
+
+    users.forEach((user) => {
+        const aluno = dados.find(el => String(el[nome_]).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " ")
+            // == user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " "))
+            == user.children[0].innerText.substr(2).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " "))
+
+        if (aluno) {
+            user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_] == "" ? "" : aluno[nota_].replace('.', ',').replace(/\s{2,}/g, " ")
+        }        
+    })    
+}
+
 const updateNotas = (dados) => {
     const [nome_, nota_] = Object.keys(dados[0])
     // console.log(nome_)
@@ -42,7 +52,7 @@ const updateNotas = (dados) => {
     users.forEach((user) => {
         //remover acentos
         const aluno = dados.find(el => String(el[nome_]).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " ")
-            == user.children[1].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " "))
+            == user.children[0].innerText.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " "))
 
         if (aluno) {
             //remover acentos
@@ -53,8 +63,19 @@ const updateNotas = (dados) => {
         }
     })
 
+    users.forEach((user) => {
+        //remover acentos
+        const aluno = dados.find(el => String(el[nome_]).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " ")
+            == user.children[0].innerText.substr(2).toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").replace(/\s{2,}/g, " "))
 
-
+        if (aluno) {
+            //remover acentos
+            // console.log(parseFloat(user.nextElementSibling.nextElementSibling.children[1].value.replace(',', '.')) + "---" + parseFloat(aluno[nota_].replace(',', '.')))
+            if (parseFloat(user.nextElementSibling.nextElementSibling.children[1].value.replace(',', '.')) != parseFloat(aluno[nota_].replace(',', '.'))) {
+                user.nextElementSibling.nextElementSibling.children[1].value = aluno[nota_] == "" ? "" : aluno[nota_].replace('.', ',')
+            }
+        }
+    })    
 }
 
 const convert_text_in_json = (notas_) => {
